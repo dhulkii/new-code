@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/oxer
+hooks:
+  BeforeInstall:
+    - location: /oxer/install_dependencies.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: /oxer/restart_server.sh
+      timeout: 300
+      runas: root
