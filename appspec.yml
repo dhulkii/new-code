@@ -2,10 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/oxer
+    destination: /var/www/html/oxer/css/style.scss
     overwrite: true
 hooks:
   BeforeInstall:
+    - location: delete_style_file.sh
+      timeout: 300
+      runas: root
     - location: install_dependencies.sh
       timeout: 300
       runas: root
